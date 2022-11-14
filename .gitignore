@@ -2,6 +2,7 @@
 
 # dependencies
 stf-3000-source/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
