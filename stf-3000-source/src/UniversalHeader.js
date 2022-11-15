@@ -5,7 +5,7 @@ import { HamburgerPanel } from './HamburgerPanel';
 
 /* Contains day/night mode switcher. Shouldn't render on mobile screens. */
 /* TODO: Render based on window width. */
-function UniversalHeader() {
+export default function UniversalHeader() {
     return (
         <Flex pt={2}>
             <HamburgerPanel mx={2} justifySelf="flex-start" />
@@ -14,4 +14,3 @@ function UniversalHeader() {
         </Flex>
     )
 }
-export default UniversalHeader;

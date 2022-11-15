@@ -1,16 +1,18 @@
+/** Copyright (c) 2022, Cam Parker **/
+
 import {
   ChakraProvider,
   Grid,
   GridItem,
-  theme
 } from '@chakra-ui/react';
 import React from 'react';
 import FrontPage from './frontpage/FrontPage';
 import NoContent from './NoContent';
 import UniversalHeader from './UniversalHeader';
+import theme from './theme';
 
-function App() {
-  const displayContent = true;
+export default function App() {
+  const displayContent = true; //TODO: should be an environment variable
 
   return (
     <ChakraProvider theme={theme}>
@@ -31,5 +33,3 @@ function App() {
     </ChakraProvider>
   );
 }
-
-export default App;

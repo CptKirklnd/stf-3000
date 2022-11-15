@@ -1,7 +1,7 @@
 import { Box, Grid, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
-function NoContent() {
+export default function NoContent() {
     return (
         <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
@@ -12,5 +12,3 @@ function NoContent() {
         </Box>
     );
 };
-
-export default NoContent;
