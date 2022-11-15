@@ -1,7 +1,9 @@
 import {
     Box,
-    Grid, Text, VStack
+    Grid,
+    VStack,
 } from '@chakra-ui/react';
+import Logo from './Logo';
 import React from "react";
 
 function FrontPage() {
@@ -9,7 +11,7 @@ function FrontPage() {
         <Box textAlign="center" fontSize="xl">
             <Grid minH="100vh" p={3}>
                 <VStack spacing={8}>
-                    <Text>Hello World!</Text>
+                    <Logo />
                 </VStack>
             </Grid>
         </Box>
