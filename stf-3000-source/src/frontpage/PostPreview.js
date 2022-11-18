@@ -21,7 +21,7 @@ const testData = {
 export default function PostPreview() {
   
   return(
-    <Card maxW='sm'>
+    <Card maxW='lg'>
       <CardBody>
         <AspectRatio ratio={16/10}>
           <Image

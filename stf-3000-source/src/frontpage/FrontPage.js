@@ -11,9 +11,14 @@ import Logo from './Logo';
 import React from "react";
 
 const PREVIEW_PER_PAGE = 9;
-const PREVIEW_PER_ROW = 3; //TODO: this should be dynamic based on viewport size
+const PREVIEW_PER_ROW = {
+    sm: 1,
+    md: 2,
+    xl: 3,
+};
 
 //this represents a queue of truncated post content
+//will be grabbed via query. DON'T QUERY THE WHOLE POST WE'RE GONNA TRUNCATE IT ANYWAY
 const testDataQueue = [1, 2, 3, 4 , 5, 6, 8, 9, 10,];
 
 export default function FrontPage() {
@@ -30,8 +35,7 @@ export default function FrontPage() {
             <Grid 
                 templateAreas={`"logo"
                                 "posts"`}
-                maxW={"60%"}
-                minW={"60%"}
+                w={{sm: "80%", md: "60%"}}
                 gap={20}
                 pb={"80px"}
             >
@@ -40,6 +44,7 @@ export default function FrontPage() {
                 </GridItem>
                 <GridItem area={"posts"}>
                     <SimpleGrid columns={PREVIEW_PER_ROW} gap={4}>
+                        {/* TODO: pass data from post to preview element */}
                         {testDataQueue.map(postInfo => <PostPreview/>)}
                     </SimpleGrid>
                 </GridItem>
