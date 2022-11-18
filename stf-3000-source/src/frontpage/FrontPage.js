@@ -4,16 +4,27 @@ import {
     Center,
     Grid,
     GridItem,
-    VStack,
+    SimpleGrid,
 } from '@chakra-ui/react';
 import PostPreview from './PostPreview';
 import Logo from './Logo';
 import React from "react";
 
-const POSTS_PER_PAGE = 5;
+const PREVIEW_PER_PAGE = 9;
+const PREVIEW_PER_ROW = 3; //TODO: this should be dynamic based on viewport size
 
-export default function FrontPage() { //TODO: create n PostPreviews, not just the one.
+//this represents a queue of truncated post content
+const testDataQueue = [1, 2, 3, 4 , 5, 6, 8, 9, 10,];
 
+export default function FrontPage() {
+    const previews = () => {
+        const postPreviews= [];
+        while(testDataQueue.length > 0){
+            postPreviews.push(<GridItem><PostPreview/></GridItem>);
+        }
+        return postPreviews;
+    }
+    
     return (
         <Center>
             <Grid 
@@ -21,17 +32,16 @@ export default function FrontPage() { //TODO: create n PostPreviews, not just th
                                 "posts"`}
                 maxW={"60%"}
                 minW={"60%"}
-                gap={10}
+                gap={20}
                 pb={"80px"}
             >
                 <GridItem area={"logo"} pb={"30px"}>
                     <Logo />
                 </GridItem>
                 <GridItem area={"posts"}>
-                    <VStack gap={"40px"}>
-                        {/* TODO: change this to a forEach once we're actually pulling post data. */}
-                        {Array.from({length: POSTS_PER_PAGE}, () => <PostPreview />)}
-                    </VStack>
+                    <SimpleGrid columns={PREVIEW_PER_ROW} gap={4}>
+                        {testDataQueue.map(postInfo => <PostPreview/>)}
+                    </SimpleGrid>
                 </GridItem>
             </Grid>
         </Center>
